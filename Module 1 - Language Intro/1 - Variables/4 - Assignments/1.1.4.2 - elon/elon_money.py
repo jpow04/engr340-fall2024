@@ -13,9 +13,17 @@ the 20-year bonds pay 4.32%, with each compounding annually.
 
 ### all your code below ###
 
+def ten_year_bond(principal):  # Function to calculate 10-year bonds
+    ten_year_final = principal * (pow((1 + 3.96 / 100), 10))
+    return ten_year_final
 
-# final answer for 10-year
-ten_year_final = None
+def twenty_year_bond(principal):  # Function to calculate 20-year bonds
+    twenty_year_final = principal * (pow((1 + 4.32 / 100), 20))
+    return twenty_year_final
 
-# final answer for 20-year
-twenty_year_final = None
+
+bonds_bought = 33000000000
+ten_year_final = ten_year_bond(bonds_bought)
+twenty_year_final = twenty_year_bond(bonds_bought)
+print("10-year bonds will be worth: $", ten_year_final)
+print("20-year bonds will be worth: $", twenty_year_final)

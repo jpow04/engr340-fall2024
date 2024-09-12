@@ -29,6 +29,25 @@ dot_product = 0
 
 ### Your code here
 
+def compute_dot_product(vector_1, vector_2):
+    """
+    Computes the dot product of two vectors of equal length
+    :param vector_1: list of integers
+    :param vector_2: list of integers
+    :return: dot product of the two vectors
+    """
+    vector_length = len(vector_1)  # Compute the length of the vectors
+    dot_product = 0  # Declare dot product
+    for i in range(vector_length):  # Repeat calculation for all vector values
+        dot_product += vector_1[i] * vector_2[i]  # Multiply corresponding values in each vector and add to dot product
+    return dot_product  # Return dot product
+
+
+print("Vector A is:", vector_a)
+print("Vector B is:", vector_b)
+dot_product = compute_dot_product(vector_a, vector_b)
+print("Dot Product is:", dot_product)
+
 """
 Step 3: Calculate the error of your dot_product compared with numpy's solution
 """

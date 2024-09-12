@@ -21,6 +21,7 @@ Given a random list of integers, return two lists of only even and odd values fr
 max_length = 20
 upper_bound = 100
 nums = generate_random_int_list(max_length, upper_bound)
+print("Number list is:", nums)
 
 # lists to hold the even and odd numbers
 # do not modify their names
@@ -30,6 +31,15 @@ odds_list = []
 """
 Step 1: Write a FOR loop to iterate through the list nums
 """
+def even_odd_list(nums):
+    for num in nums:
+        print("Computing:", num)
+        if num % 2 == 0:
+            evens_list.append(num)
+            print("Number is even, added to evens_list")
+        else:
+            odds_list.append(num)
+            print("Number is odd, added to odds_list")
 
 
 """
@@ -38,6 +48,7 @@ value is even, place it in the evens_list. If it is odd, place it in the
 odds_list
 """
 
+even_odd_list(nums)
 print("The evens list contains: ", evens_list)
 print("The odds list contains: ", odds_list)
 
