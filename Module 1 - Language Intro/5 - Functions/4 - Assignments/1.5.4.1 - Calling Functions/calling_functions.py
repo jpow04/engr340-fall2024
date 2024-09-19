@@ -7,7 +7,7 @@ mu = 1
 std = 1.2
 
 # Step 1: Set the number of samples you wish to take. This value is selected by you.
-num_samples = 5
+num_samples = 100000000
 
 # Step 2: use normal to generate distribution samples
 samples = random.normal(mu, std, num_samples)
