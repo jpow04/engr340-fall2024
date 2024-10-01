@@ -62,12 +62,25 @@ def calculate_stress(force, sample_diameter):
 
     # calculate the cross-section area (mm^2)
     ### your code here ###
+    pi = math.pi
+    sample_diameter_m = sample_diameter / 1000
+    radius = sample_diameter_m / 2
+    cs_area = pi * radius ** 2
+    print("Cross Sectional Area: ", cs_area)
 
     # calculate stress (MPa) from load (kN) and cross-sectional area
     ### your code here ###
 
+    print("Force kN: ", force)
+    force_N = force * 1000
+    print("Force N: ", force_N)
+    stress_Pa = force_N / cs_area
+    print("Stress Pa: ", stress_Pa)
+    stress_MPa = stress_Pa / 1000000
+    print("Stress MPa: ", stress_MPa)
+
     # delete this line and replace it with your own
-    stress = None
+    stress = stress_MPa
 
     return stress
 
@@ -102,7 +115,7 @@ if __name__ == "__main__":
         print("Error! No stress returned. Did you fill in the calculate_stress() method?")
         sys.exit(-1)
 
-    # use scatter plot so we don't assume a line (yet)
+    # use scatter plot, so we don't assume a line (yet)
     plt.scatter(strain, stress, label="Stress - Strain")
     plt.xlabel('Strain (mm/mm)')
     plt.ylabel('Stress (MPa)')
