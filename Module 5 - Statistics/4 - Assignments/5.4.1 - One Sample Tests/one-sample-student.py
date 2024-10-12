@@ -35,6 +35,31 @@ def one_sample_tests(_files: list, _mean: float, _alpha: float, _less_than: bool
     reject_null_hypothesis = []
 
     # YOUR CODE HERE #
+    if _less_than:  # Condition for left sided tests
+        print('Conducting left sided tests on:', _files)
+        for file in _files:
+            print("Opening file:", file)
+            data = np.loadtxt(file, delimiter=',')  # Open csv data file
+            data = np.asarray(data)  # Convert to numpy array
+            (stat, p_value) = ttest_1samp(data, popmean=_mean, alternative='less')  # Conduct left sided test
+            if p_value < _alpha:  # Compare results to determine if means are equal
+                print(file, "Rejected, sample means and population means are not equal")
+                reject_null_hypothesis.append(file)  # Append rejected files
+            else:
+                print(file, "Accepted")
+
+    if not _less_than:  # Condition for right sided tests
+        print('Conducting right sided tests on:', _files)
+        for file in _files:
+            print("Opening file:", file)
+            data = np.loadtxt(file, delimiter=',')  # Open csv data file
+            data = np.asarray(data)  # Convert to numpy array
+            (stat, p_value) = ttest_1samp(data, popmean=_mean, alternative='greater')  # Conduct left sided test
+            if p_value < _alpha:  # Compare results to determine if means are equal
+                print(file, "Rejected, sample means and population means are not equal")
+                reject_null_hypothesis.append(file)  # Append rejected files
+            else:
+                print(file, "Accepted")
 
     # return samples that were rejected
     return reject_null_hypothesis
