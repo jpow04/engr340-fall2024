@@ -74,14 +74,14 @@ Step 5: Pass a moving filter over your data
 """
 
 window_size = 100
-moving_avg_mlii = np.convolve(mlii_squared, np.ones(window_size)/window_size, mode='same')
-moving_avg_v1 = np.convolve(v1_squared, np.ones(window_size)/window_size, mode='same')
+moving_avg_mlii = np.convolve(mlii_squared, np.ones(window_size)/window_size)
+moving_avg_v1 = np.convolve(v1_squared, np.ones(window_size)/window_size)
 # Plot average signal
 plt.title('Average Signal')
 plt.xlabel('Time (s)')
 plt.ylabel('MLII and V1 (mV)')
-plt.plot(elapsed_time, moving_avg_mlii, label='MLII')
-plt.plot(elapsed_time, moving_avg_v1, label='V1')
+plt.plot(moving_avg_mlii, label='MLII')
+plt.plot(moving_avg_v1, label='V1')
 plt.legend()
 plt.show()
 
