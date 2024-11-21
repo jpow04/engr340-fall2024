@@ -130,7 +130,7 @@ accel_rsi = df['accelerometer_rsi'].to_numpy()
 error = force_plate_rsi - accel_rsi
 
 # generate a histogram to see what the data looks like
-plt.hist(error, bins=15, label='RSI Error')
+plt.hist(error, bins=16, label='RSI Error')
 plt.xlabel('Relative RSI Error')
 plt.ylabel('Counts')
 plt.title('Distribution of RSI Error')
